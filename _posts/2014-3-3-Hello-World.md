@@ -10,5 +10,8 @@ $$a_{i}=\frac{1}{\sqrt{N}}\sum_{\mathbf q} e^{i\mathbf q\cdot \mathbf R_{i}}a_{\
 
 With labeling:
 \begin{equation}
-a^\dagger
+M=\begin{pmatrix}
+a & b\\
+c & d\\
+\end{pmatrix}
 \end{equation}
