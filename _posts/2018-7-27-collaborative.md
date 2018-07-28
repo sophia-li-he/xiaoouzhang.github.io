@@ -18,3 +18,4 @@ Besides, the user information is extracted to enhance the performance of collabo
 
 A hybrid model is applied combining the stacked denoising autoencoder (SDAE) with matrix factorization (MF) algorithm. Here [(Wang et al. (2015))](https://dl.acm.org/citation.cfm?id=2783273) is a good article on this model.
 
+The structure of a typical SDAE is shown in the upper part of the figure above. The one-hot encoding in the input layer is followed by a corruption layer, where a Gaussian noise is added to the input.  X0 is the original user information using one-hot encoding, and Xc is the corrupted input with Gaussian noise. Note that we use tied weight in the SDAE, such that the SDAE has a symmetric structure. The Xencode layer with the least number of hidden units is the encoding of the user information, which is also called “bottleneck” in this post.
