@@ -14,5 +14,7 @@ Besides, the user information is extracted to enhance the performance of collabo
 
 ## Model Description
 
+![an image alt text]({{ site.baseurl }}/images/rs/AE.png "an image title")
+
 A hybrid model is applied combining the stacked denoising autoencoder (SDAE) with matrix factorization (MF) algorithm. Here [(Wang et al. (2015))](https://dl.acm.org/citation.cfm?id=2783273) is a good article on this model.
 
