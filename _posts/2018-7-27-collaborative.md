@@ -2,15 +2,9 @@
 layout: post
 title: Collaborative Deep Learning for Recommender Systems
 ---
+## Introduction
 
+This post is a follow up discussion about [an earlier work](https://github.com/xiaoouzhang/Collaborative-Deep-Learning-for-Recommender-Systems) about recommender systems using denoised autoencoder. I will focus on how to use the model to interpret the patterns of the dataset.
 
-In line equation is shown here $$a^2+b^2=c^2$$.
+## Model Description
 
-$$a_{i}=\frac{1}{\sqrt{N}}\sum_{\mathbf q} e^{i\mathbf q\cdot \mathbf R_{i}}a_{\mathbf q}$$
-
-With labeling:
-\begin{equation}
-M=\begin{pmatrix}
-a & b\\\c & d
-\end{pmatrix}
-\end{equation}
