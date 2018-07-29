@@ -33,4 +33,20 @@ On the other hand, we are not completely sure about the preference. Therefore, w
 \begin{equation}
 c_{ij}=1+\alpha r_{ij}\;,
 \end{equation}
-where $$\alpha$$ describes how the confidence grows with the history of using the service $$j$$.
+where $$\alpha$$ describes how the confidence grows with the history of using the service $$j$$. 
+
+The MF algorithm for implicit feed back is applied in the following way. We define user matrix $$U_{i,:}$$ and item matrix $$V_{j,:}$$, where each row, written as $$\bm{u}_i$$ and $$\bm{v}_j$$, is the vector in the latent factor representation for each customer and service, respectively. We predict the preference $$p_{i,j}$$ by $$\bm{u}_i\cdot\bm{v}_j$$. The preferences with different levels of confidence are not treated equally in the loss function, which is given by
+\begin{equation}
+l=\sum_{i,j}c_{i,j}(p_{i,j}-\bm{u}_i\cdot\bm{v}_j)^2+\lambda(\sum_{i}||\bm{u}_i||^2+\sum_{j}||\bm{v}_j||^2)\;.
+\end{equation}
+From a probability point of view, the confidence $$c_{i,j}$$ measures the standard deviation of the prediction to the preference.
+
+The update rule for is given by setting the derivivatives of the loss funciton with respect to $$\bm{u}_i$$ and $$\bm{v}_j$$ to zero:
+\begin{equation}
+U_{i,:}\rightarrow P^iC^iV(\lambda I+V^TC^iV)^{-1}\;,
+\end{equation}
+where $$C^i_{jj}=c_{ij}$$ is a diagonal matrix, and $$P^i=\{p_{ij}\}_\text{all j}$$ is the preference vector for customer $$i$$;
+\begin{equation}
+V_{i,:}\rightarrow \tilde{P}^j\tilde{C}^jU(\lambda I+U^TC^jU)^{-1}\;,
+\end{equation}
+where $$\tilde{C}^j_{ii}=c_{ij}$$ is a diagonal matrix, and $$\tilde{P}^j=\{p_{ij}\}_\text{all i}$$ is the preference vector for service $$j$$.
