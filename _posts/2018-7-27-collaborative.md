@@ -35,7 +35,7 @@ c_{ij}=1+\alpha r_{ij}\;,
 \end{equation}
 where $$\alpha$$ describes how the confidence grows with the history of using the service $$j$$. 
 
-The MF algorithm for implicit feed back is applied in the following way. We define user matrix $$U_{i,:}$$ and item matrix $$V_{j,:}$$, where each row, written as $$\bm{u}_i$$ and $$\bm{v}_j$$, is the vector in the latent factor representation for each customer and service, respectively. We predict the preference $$p_{i,j}$$ by $$\bm{u}_i\cdot\bm{v}_j$$. The preferences with different levels of confidence are not treated equally in the loss function, which is given by
+The MF algorithm for implicit feed back is applied in the following way. We define user matrix $$U_{i,:}$$ and item matrix $$V_{j,:}$$, where each row, written as $$\mathbf{u}_i$$ and $$\\mathbf{v}_j$$, is the vector in the latent factor representation for each customer and service, respectively. We predict the preference $$p_{i,j}$$ by $$\bm{u}_i\cdot\mathbf{v}_j$$. The preferences with different levels of confidence are not treated equally in the loss function, which is given by:
 \begin{equation}
 l=\sum_{i,j}c_{i,j}(p_{i,j}-\bm{u}_i\cdot\bm{v}_j)^2+\lambda(\sum_{i}||\bm{u}_i||^2+\sum_{j}||\bm{v}_j||^2)\;.
 \end{equation}
@@ -50,3 +50,5 @@ where $$C^i_{jj}=c_{ij}$$ is a diagonal matrix, and $$P^i=\{p_{ij}\}_\text{all j
 V_{i,:}\rightarrow \tilde{P}^j\tilde{C}^jU(\lambda I+U^TC^jU)^{-1}\;,
 \end{equation}
 where $$\tilde{C}^j_{ii}=c_{ij}$$ is a diagonal matrix, and $$\tilde{P}^j=\{p_{ij}\}_\text{all i}$$ is the preference vector for service $$j$$.
+
+Each time after the $U$ and $V$ matrices are updated, we also update the parameters in the SDAE using gradient decent, such that collaborate filtering not only receive the prediction from the SDAE, but it also provide feedbacks to the SDAE.
