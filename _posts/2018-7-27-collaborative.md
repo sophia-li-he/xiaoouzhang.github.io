@@ -43,4 +43,6 @@ From a probability point of view, the confidence $$c_{i,j}$$ measures the standa
 
 The update rule for is given by setting the derivatives of the loss function with respect to $$\mathbf{u}_i$$ and $$\mathbf{v}_j$$ to zero. Details can be found in [Hu et al. (2008)](https://dl.acm.org/citation.cfm?id=1510528.1511352). Note that this article provides a trick to speed up the training process using the sparsity of the preference matrix. In my implementation, this trick speeds up the MF algorithm by over 500 times.
 
-Each time after the $U$ and $V$ matrices are updated, we also update the parameters in the SDAE using gradient decent, such that collaborate filtering not only receive the prediction from the SDAE, but it also provide feedbacks to the SDAE.
+Each time after the $$U$$ and $$V$$ matrices are updated, we also update the parameters in the SDAE using gradient decent, such that collaborate filtering not only receive the prediction from the SDAE, but it also provide feedbacks to the SDAE. 
+
+In the prediction process, for each user $$i$$, we mask out the services that have been chosen before and assign a percentile-ranking for the remaining services according to the value of $$\mathbf{u}_i\cdot\mathbf{v}_j$$. A ranking of $$100\%$$ means the item is predicted to be the least favorable for user $$i$$, while $$0\%$$ means the the item is the most favorable. A random guess should have a ranking of $$50\%$$.
