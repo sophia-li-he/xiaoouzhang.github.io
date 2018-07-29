@@ -25,7 +25,7 @@ In the MF algorithm, we need to handle the rating matrix $r_{ij}$ containing the
 For implicit feed backs, we can construct preference $p_{ij}$ and confidence $c_{ij}$ according to the rating matrix. If a customer has used a certain service before, it is possible that the user has preference to this service. Accordingly, the definition of preference $p_{ij}$ is given by
 \begin{equation}
 p_{ij}=\begin{cases}
-1 & \text{if }r_{ij}>0\\
+1 & \text{if }r_{ij}>0\\\
 0 & \text{otherwise}
 \end{cases}\;.
 \end{equation}
