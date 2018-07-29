@@ -54,5 +54,5 @@ where $$\tilde{C}^j_{ii}=c_{ij}$$ is a diagonal matrix, and $$\tilde{P}^j=\{p_{i
 Each time after the $U$ and $V$ matrices are updated, we also update the parameters in the SDAE using gradient decent, such that collaborate filtering not only receive the prediction from the SDAE, but it also provide feedbacks to the SDAE.
 
 \begin{equation}
-l=\sum_{i,j}c_{i,j}(p_{i,j}-\mathbf{u}_i\cdot\mathbf{v}_j)^2+\lambda(\sum_{i}\|\mathbf{u}_i\|^2+\sum_{j}\|\mathbf{v}_j\|^2)
+l=(\sum_{i}\|\mathbf{u}_i\|^2+\sum_{j}\|\mathbf{v}_j\|^2)
 \end{equation}
