@@ -3,6 +3,7 @@ layout: post
 title: Deep Learning + Collaborative Filtering for Recommender Systems
 ---
 {% include toc.html html=content %}
+{:toc}
 
 ## Introduction
 
