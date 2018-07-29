@@ -20,9 +20,9 @@ The figure above shows the hybrid model combining the stacked denoising autoenco
 
 The structure of a typical SDAE is shown in the upper part of the figure above. The one-hot encoding $$X_0$$ in the input layer is followed by a corruption layer $$X_c$$, where a Gaussian noise is added to the input. Note that we use tied weight in the SDAE, such that the SDAE has a symmetric structure. The $$X_{encode}$$ layer with the least number of hidden units is the encoding of the user information and will be fed into the MF algorithm.
 
-In the MF algorithm, we need to handle the rating matrix $r_{ij}$ containing the user behavior history, which are implicit feedbacks. This is different from the explicit feedbacks such as the rating in Amazon and Netflix, as discussed in [Hu et al. (2008)](https://dl.acm.org/citation.cfm?id=1510528.1511352).
+In the MF algorithm, we need to handle the rating matrix $$r_{ij}$$ containing the user behavior history, which are implicit feedbacks. This is different from the explicit feedbacks such as the rating in Amazon and Netflix, as discussed in [Hu et al. (2008)](https://dl.acm.org/citation.cfm?id=1510528.1511352).
 
-For implicit feed backs, we can construct preference $p_{ij}$ and confidence $c_{ij}$ according to the rating matrix. If a customer has used a certain service before, it is possible that the user has preference to this service. Accordingly, the definition of preference $p_{ij}$ is given by
+For implicit feed backs, we can construct preference $$p_{ij}$$ and confidence $$c_{ij}$$ according to the rating matrix. If a customer has used a certain service before, it is possible that the user has preference to this service. Accordingly, the definition of preference $$p_{ij}$$ is given by
 \begin{equation}
 p_{ij}=\begin{cases}
 1 & \text{if }r_{ij}>0\\\
@@ -33,4 +33,4 @@ On the other hand, we are not completely sure about the preference. Therefore, w
 \begin{equation}
 c_{ij}=1+\alpha r_{ij}\;,
 \end{equation}
-where $\alpha$ describes how the confidence grows with the history of using the service $j$.
+where $$\alpha$$ describes how the confidence grows with the history of using the service $$j$$.
