@@ -1,9 +1,8 @@
-{% include toc.html html=content %}
 ---
 layout: post
 title: Deep Learning + Collaborative Filtering for Recommender Systems
 ---
-{:toc}
+{% include toc.html html=content %}
 
 ## Introduction
 
