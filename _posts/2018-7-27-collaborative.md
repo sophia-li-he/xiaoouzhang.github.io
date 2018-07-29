@@ -41,18 +41,6 @@ l=\sum_{i,j}c_{i,j}(p_{i,j}-\mathbf{u}_i\cdot\mathbf{v}_j)^2+\lambda(\sum_i\|\ma
 \end{equation}
 From a probability point of view, the confidence $$c_{i,j}$$ measures the standard deviation of the prediction to the preference.
 
-The update rule for is given by setting the derivivatives of the loss funciton with respect to $$\mathbf{u}_i$$ and $$\mathbf{v}_j$$ to zero:
-\begin{equation}
-U_{i,:}\rightarrow P^iC^iV(\lambda I+V^TC^iV)^{-1}\;,
-\end{equation}
-where $$C^i_{jj}=c_{ij}$$ is a diagonal matrix, and $$P^i=\{p_{ij}\}_\text{all j}$$ is the preference vector for customer $$i$$;
-\begin{equation}
-V_{i,:}\rightarrow \tilde{P}^j\tilde{C}^jU(\lambda I+U^TC^jU)^{-1}\;,
-\end{equation}
-where $$\tilde{C}^j_{ii}=c_{ij}$$ is a diagonal matrix, and $$\tilde{P}^j=\{p_{ij}\}_\text{all i}$$ is the preference vector for service $$j$$.
+The update rule for is given by setting the derivatives of the loss function with respect to $$\mathbf{u}_i$$ and $$\mathbf{v}_j$$ to zero. Details can be found in [Hu et al. (2008)](https://dl.acm.org/citation.cfm?id=1510528.1511352). Note that this article provides a trick to speed up the training process using the sparsity of the preference matrix. In my implementation, this trick speeds up the MF algorithm by over 500 times.
 
 Each time after the $U$ and $V$ matrices are updated, we also update the parameters in the SDAE using gradient decent, such that collaborate filtering not only receive the prediction from the SDAE, but it also provide feedbacks to the SDAE.
-
-\begin{equation}
-l=\sum_i\|\mathbf{u}_i\|^2+\sum_j\|\mathbf{v}_j\|^2
-\end{equation}
