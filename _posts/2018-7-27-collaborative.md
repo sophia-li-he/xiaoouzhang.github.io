@@ -52,3 +52,7 @@ V_{i,:}\rightarrow \tilde{P}^j\tilde{C}^jU(\lambda I+U^TC^jU)^{-1}\;,
 where $$\tilde{C}^j_{ii}=c_{ij}$$ is a diagonal matrix, and $$\tilde{P}^j=\{p_{ij}\}_\text{all i}$$ is the preference vector for service $$j$$.
 
 Each time after the $U$ and $V$ matrices are updated, we also update the parameters in the SDAE using gradient decent, such that collaborate filtering not only receive the prediction from the SDAE, but it also provide feedbacks to the SDAE.
+
+\begin{equation}
+l=
+\end{equation}
