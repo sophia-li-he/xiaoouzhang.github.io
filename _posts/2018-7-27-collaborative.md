@@ -18,9 +18,9 @@ Besides, the user information is extracted to enhance the performance of collabo
 
 ## Model Description
 
-![an image alt text]({{ site.baseurl }}/images/rs/AE.png "an image title")
+The figure below shows the hybrid model combining the stacked denoising autoencoder (SDAE) with matrix factorization (MF) algorithm. Here [(Wang et al. (2015))](https://dl.acm.org/citation.cfm?id=2783273) is a good article on this model.
 
-The figure above shows the hybrid model combining the stacked denoising autoencoder (SDAE) with matrix factorization (MF) algorithm. Here [(Wang et al. (2015))](https://dl.acm.org/citation.cfm?id=2783273) is a good article on this model.
+![an image alt text]({{ site.baseurl }}/images/rs/AE.png "an image title")
 
 The structure of a typical SDAE is shown in the upper part of the figure above. The one-hot encoding $$X_0$$ in the input layer is followed by a corruption layer $$X_c$$, where a Gaussian noise is added to the input. Note that we use tied weight in the SDAE, such that the SDAE has a symmetric structure. The $$X_{encode}$$ layer with the least number of hidden units is the encoding of the user information and will be fed into the MF algorithm.
 
@@ -50,3 +50,5 @@ The update rule for is given by setting the derivatives of the loss function wit
 Each time after the $$U$$ and $$V$$ matrices are updated, we also update the parameters in the SDAE using gradient decent, such that collaborate filtering not only receive the prediction from the SDAE, but it also provide feedbacks to the SDAE. 
 
 In the prediction process, for each user $$i$$, we mask out the services that have been chosen before and assign a percentile-ranking for the remaining services according to the value of $$\mathbf{u}_i\cdot\mathbf{v}_j$$. A ranking of $$100\%$$ means the item is predicted to be the least favorable for user $$i$$, while $$0\%$$ means the the item is the most favorable. A random guess should have a ranking of $$50\%$$. For new users whose purchase history is not available, we can generate the user matrix using the SDAE, thus the cold-start problem in collaborative filtering can be levitated.
+
+##Some Visualizations
