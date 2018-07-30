@@ -53,9 +53,9 @@ In the prediction process, for each user $$i$$, we mask out the services that ha
 
 ## Some Visualizations
 
-![an image alt text]({{ site.baseurl }}/images/rs/AE.png "an image title")
 ![an image alt text]({{ site.baseurl }}/images/rs/ind_actividad_cliente.png "an image title")
 ![an image alt text]({{ site.baseurl }}/images/rs/age.png "an image title")
 ![an image alt text]({{ site.baseurl }}/images/rs/segmento.png "an image title")
+![an image alt text]({{ site.baseurl }}/images/rs/interpret_user139_newprod12.png "an image title")
 ![an image alt text]({{ site.baseurl }}/images/rs/w1.png "an image title")
 ![an image alt text]({{ site.baseurl }}/images/rs/compare.png "an image title")
