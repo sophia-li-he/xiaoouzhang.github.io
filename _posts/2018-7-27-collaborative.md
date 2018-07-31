@@ -67,7 +67,7 @@ Let's try to understand what is learnt by the SDAE. In the figure above, I plott
 
 I also plotted the Fisher score for each of the binary encodings in $$X_0$$ for the user information in a blue line in the figure above. The Fisher score describes how well can each feature separates the data points from different categories while keeping the data points in the same category clustered. For each feature, the Fisher score is given by
 \begin{equation}
-F(X_0^j)=\frac{\sum_k=1^c n_k(\mu_k-\mu)^2}{\sigma_k^2}\;,
+F(X_0^j)=\frac{\sum_{k=1}^c n_k(\mu_k-\mu)^2}{\sigma_k^2}\;,
 \end{equation}
 where $$k$$ in the numerator is summed over all categories; $$\mu_k$$, $$\sigma_k$$ are the mean and standard deviation for $$X_0^j$$ in each category. More details of the Fisher score can be found in [this article](https://arxiv.org/pdf/1202.3725.pdf). Now we concentrate on how well the features separate the users that have used the service "ind_recibo_ult1" from those who haven't. The curve for the Fisher score strongly overlap with the distribution of weights, meaning the SDAE is trying to find out which features can do the best to separate the clients with different preferences.
 
