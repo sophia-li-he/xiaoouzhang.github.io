@@ -62,7 +62,7 @@ The following graph shows the distribution of age and segmento (the level of cli
 ## Results and Interpretation
 I applied a strong $$l_2$$ regularization for the user and product matrix ($$l_2=40$$). For the users with purchase history, the percentile-ranking is $9.42\%$. For the new users with no purchase history, I first calculate the user matrix from the SDAE, and calculate $$\mathbf{u}_i\cdot\mathbf{v}_j$$. The percentile-ranking for these new users is $$10.33\%$$. In comparison, if we don't have the SDAE and predict the purchase behavior by a random user matrix, the percentile-ranking is over $$13\%$$. That means the SDAE is learning useful information for making the prediction.
 
-In order to understand what SDAE has learnt, we first calculate the Fisher score for each of the binary encodings in $$X_0$$ for the user information. The Fisher score discribes how well can each feature separates the data points from different catagories will keeping the datapoits in the same catergory clustered. More details of the Fisher score can be found in [this article](https://arxiv.org/pdf/1202.3725.pdf).
+In order to understand what SDAE has learnt, we first calculate the Fisher score for each of the binary encodings in $$X_0$$ for the user information. The Fisher score describes how well can each feature separates the data points from different categories while keeping the data points in the same category clustered. More details of the Fisher score can be found in [this article](https://arxiv.org/pdf/1202.3725.pdf).
 
 ![an image alt text]({{ site.baseurl }}/images/rs/interpret_user139_newprod12.png "an image title")
 ![an image alt text]({{ site.baseurl }}/images/rs/w1.png "an image title")
