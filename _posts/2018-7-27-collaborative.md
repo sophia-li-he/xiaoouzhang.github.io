@@ -22,7 +22,7 @@ The figure below shows the hybrid model combining SDAE with MF. Here [(Wang et a
 
 ![an image alt text]({{ site.baseurl }}/images/rs/AE.png "an image title")
 
-The structure of a typical SDAE is shown in the upper part of the figure above. The 314-dimensional binary encoding $$X_0$$ in the input layer is followed by a corruption layer $$X_c$$, where a Gaussian noise is added to the input. Note that we use tied weight in the SDAE, such that the SDAE has a symmetric structure. The $$X_{encode}$$ layer with the least number of hidden units is the encoding of the user information and will be fed into the MF algorithm.
+The structure of a typical SDAE is shown in the upper part of the figure above. The 314-dimensional binary encoding $$X_0$$ in the input layer is followed by a corruption layer $$X_c$$, where a Gaussian noise is added to the input. Tied weight is applied in the SDAE, such that the SDAE has a symmetric structure. The $$X_{encode}$$ layer with the least number of hidden units is the encoding of the user information and will be fed into the MF algorithm.
 
 In the MF algorithm, we need to handle the rating matrix $$r_{ij}$$ containing the user behavior history, which are implicit feedbacks. This is different from the explicit feedbacks such as the rating in Amazon and Netflix, as discussed in [Hu et al. (2008)](https://dl.acm.org/citation.cfm?id=1510528.1511352).
 
