@@ -76,6 +76,6 @@ Furthermore, we can also get insights from the MF algorithm. The paper by [Hu et
 
 ## Summary
 
-In sum, the hybrid model that combines SDAE and MF not only gives rise to good predictions to the customer purchase behavior, but also provides insights to the reason of these purchases. For a data scientist, constructing a powerful model is only part of the job, and getting insights from the model and providing it to the business side of the company is equally (or even more) important.
+In sum, the hybrid model that combines SDAE and MF not only gives rise to good predictions to the customer purchase behavior, but also provides insights to the reason of these purchases. For a data scientist, constructing a powerful model is only part of the job, and getting insights from the model and providing it to the business side of the company is equally (sometimes even more) important.
 
 
