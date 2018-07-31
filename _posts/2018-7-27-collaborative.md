@@ -41,7 +41,7 @@ where $$\alpha$$ describes how the confidence grows with the history of using th
 
 The MF algorithm for implicit feed back is applied in the following way. We define user matrix $$U_{i,:}$$ and item matrix $$V_{j,:}$$, where each row, written as $$\mathbf{u}_i$$ and $$\\mathbf{v}_j$$, is the vector in the latent factor representation for each customer and service, respectively. We predict the preference $$p_{i,j}$$ by $$\mathbf{u}_i\cdot\mathbf{v}_j$$. The preferences with different levels of confidence are not treated equally in the loss function, which is given by:
 \begin{equation}
-l=\sum_{i,j}c_{i,j}(p_{i,j}-\mathbf{u}_i\cdot\mathbf{v}_j)^2+\lambda(\sum_i\|\mathbf{u}_i\|^2+\sum_j\|\mathbf{v}_j\|^2)\;.
+l=\sum_{i,j}c_{ij}(p_{ij}-\mathbf{u}_i\cdot\mathbf{v}_j)^2+\lambda(\sum_i\|\mathbf{u}_i\|^2+\sum_j\|\mathbf{v}_j\|^2)\;.
 \end{equation}
 From a probability point of view, the confidence $$c_{i,j}$$ measures the standard deviation of the prediction to the preference.
 
