@@ -11,7 +11,7 @@ title: Deep Learning + Collaborative Filtering for Recommender Systems
 This post is a follow up discussion of [an earlier work](https://github.com/xiaoouzhang/Collaborative-Deep-Learning-for-Recommender-Systems) about recommender systems using denoised autoencoder. I will focus on how to use the model to interpret the patterns of the dataset.
 
 ## What Can We Get from the Dataset
-The key information extracted from the dataset is the rating matrix and the side information of users. The size of the rating matrix is (user number) $$\times$$ (product number). Each matrix element is the number of months that each user has used each product from 2015-01-28 to 2016-03-28. The record from 2016-03-28 to 2016-05-28 is used for validation and testing process. Note that we can build a recommender system only using the rating matrix by collaborative filtering (specifcally, matrix factoriztion).
+The key information extracted from the dataset is the rating matrix and the side information of users. The size of the rating matrix is (user number) $$\times$$ (product number). Each matrix element $$r_{ij}$$ is the number of months that each user has used each product from 2015-01-28 to 2016-03-28. The record from 2016-03-28 to 2016-05-28 is used for validation and testing process. Note that we can build a recommender system only using the rating matrix by collaborative filtering (specifcally, matrix factoriztion).
 
 Besides, the user information is extracted to enhance the performance of collaborative filtering for new users. Both categorical (gender, nationality, etc.) and numerical (age, income, etc.) variables exist in the dataset. The categorical variables are represented by one-hot encodings, and the numerical variables can be binned and become categorical variables. The one-hot encodings are concatenated into a 314-dimensional vector as the input of the denoising autoencoder.
 
@@ -69,8 +69,9 @@ I also plotted the Fisher score for each of the binary encodings in $$X_0$$ for 
 \begin{equation}
 F(X_0^j)=\frac{\sum_{k=1}^c n_k(\mu_k-\mu)^2}{\sigma_k^2}\;,
 \end{equation}
-where $$k$$ in the numerator is summed over all categories; $$\mu_k$$, $$\sigma_k$$ are the mean and standard deviation for $$X_0^j$$ in each category. More details of the Fisher score can be found in [this article](https://arxiv.org/pdf/1202.3725.pdf). Now we concentrate on how well the features separate the users that have used the service "ind_recibo_ult1" from those who haven't. The curve for the Fisher score strongly overlap with the distribution of weights, meaning the SDAE is trying to find out which features can do the best to separate the clients with different preferences.
+where $$k$$ in the numerator is summed over all categories; $$\mu_k$$, $$\sigma_k$$ are the mean and standard deviation for $$X_0^j$$ in each category. More details of the Fisher score can be found in [this article](https://arxiv.org/pdf/1202.3725.pdf). Now we concentrate on how well the features separate the users that have used the service "ind_recibo_ult1" from those who haven't. The curve for the Fisher score strongly overlap with the distribution of weights, meaning the SDAE is trying to find out which features can do the best to separate the clients with different preferences. 
 
+Forthermore, we can also get insights from the MF algorithm. The paper by [Hu et al. (2008)](https://dl.acm.org/citation.cfm?id=1510528.1511352) proposed a way to explain the model in the following way. Simple mathematical derivation shows that the preference matrix $$p_{ui}=\sum_j s^u_{ij}c_{ui}$$, where $s^u_{ij}=v_i^T(V^TC^uV+\lambda I)^{-1}v_j$, and
 ![an image alt text]({{ site.baseurl }}/images/rs/interpret_user139_newprod12.png "an image title")
 
 
