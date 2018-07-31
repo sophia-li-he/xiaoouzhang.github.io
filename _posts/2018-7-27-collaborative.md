@@ -58,6 +58,10 @@ Before running the model, let's get some insight about the dataset by visualize 
 The following graph shows the distribution of age and segmento (the level of clients) for different clients. Unlike the feature for activate/inactive clients, different product shows quiet different distributions. For example, the Junior Account (nd_ctju_fin_ult1) is mainly used by clients below 20 years old, and the people over 80 years old prefers Long-term deposits (ind_dela_fin_ult1). In addition, the clients in the top level are more likely to use the pension service rather than saving account compared to the clients in the lower levels. The difference between products implies that the user information can be very helpful when predicting the customer behavior.
 ![an image alt text]({{ site.baseurl }}/images/rs/age.png "an image title")
 ![an image alt text]({{ site.baseurl }}/images/rs/segmento.png "an image title")
+
+## Results and Interpretation
+I applied a strong $$l_2$$ regularization for the user and product matrix ($$l_2=40$$). For the users with purchase history, the percentile-ranking is $9.42\%$. For the new users with no purchase history, I first calculate the user matrix from the SDAE, and calculate $$\mathbf{u}_i\cdot\mathbf{v}_j$$. The percentile-ranking for these new users is $$10.33\%$$. In comparison, if we don't have the SDAE and predict the purchase behavior by a random user matrix, the percentile-ranking is over $$13\%$$. That means the SDAE is learning useful information for making the prediction.
+
 ![an image alt text]({{ site.baseurl }}/images/rs/interpret_user139_newprod12.png "an image title")
 ![an image alt text]({{ site.baseurl }}/images/rs/w1.png "an image title")
 ![an image alt text]({{ site.baseurl }}/images/rs/compare.png "an image title")
