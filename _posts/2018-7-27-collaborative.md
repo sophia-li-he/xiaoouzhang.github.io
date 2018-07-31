@@ -60,10 +60,13 @@ The following graph shows the distribution of age and segmento (the level of cli
 ![an image alt text]({{ site.baseurl }}/images/rs/segmento.png "an image title")
 
 ## Results and Interpretation
-I applied a strong $$l_2$$ regularization for the user and product matrix ($$l_2=40$$). For the users with purchase history, the percentile-ranking is $9.42\%$. For the new users with no purchase history, I first calculate the user matrix from the SDAE, and calculate $$\mathbf{u}_i\cdot\mathbf{v}_j$$. The percentile-ranking for these new users is $$10.33\%$$. In comparison, if we don't have the SDAE and predict the purchase behavior by a random user matrix, the percentile-ranking is over $$13\%$$. That means the SDAE is learning useful information for making the prediction.
+I applied a strong $$l_2$$ regularization for the user and product matrix ($$l_2=40$$). For the users with purchase history, the percentile-ranking is $$9.42\%$$. For the new users with no purchase history, I first calculate the user matrix from the SDAE, and calculate $$\mathbf{u}_i\cdot\mathbf{v}_j$$. The percentile-ranking for these new users is $$10.33\%$$. In comparison, if we don't have the SDAE and predict the purchase behavior by a random user matrix, the percentile-ranking is over $$13\%$$. That means the SDAE is learning useful information for making the prediction.
 
-In order to understand what SDAE has learnt, we first calculate the Fisher score for each of the binary encodings in $$X_0$$ for the user information. The Fisher score describes how well can each feature separates the data points from different categories while keeping the data points in the same category clustered. More details of the Fisher score can be found in [this article](https://arxiv.org/pdf/1202.3725.pdf).
+![an image alt text]({{ site.baseurl }}/images/rs/compare.png "an image title")
+Let's try to understand what is learnt by the SDAE. In the figure above, I plotted the absolute value of the weights for one of the hidden units in with a green line. There is a sharp peak at the "segmento" feature, meaning SDAE regards "segmento" as an important feature. Similarly, the spouse index and the country of residence and age are also important features. The weights for other hidden units have similar peak positions, while the strength of each peak varies. Note that most features have negligible weights, meaning they are regarded as unimportant by the model. This is a consequence of applying $$l_1$$ regularizations to the weights.
+
+I also plotted the Fisher score for each of the binary encodings in $$X_0$$ for the user information in a blue line in the figure above. The Fisher score describes how well can each feature separates the data points from different categories while keeping the data points in the same category clustered. More details of the Fisher score can be found in [this article](https://arxiv.org/pdf/1202.3725.pdf). Now we concentrate on how well the features separate the users that have used the service "ind_recibo_ult1" from those who haven't. The curve for the Fisher score strongly overlap with the distribution of weights, meaning the SDAE is trying to find out which features can do the best to separate the clients with different preferences.
 
 ![an image alt text]({{ site.baseurl }}/images/rs/interpret_user139_newprod12.png "an image title")
-![an image alt text]({{ site.baseurl }}/images/rs/w1.png "an image title")
-![an image alt text]({{ site.baseurl }}/images/rs/compare.png "an image title")
+
+
