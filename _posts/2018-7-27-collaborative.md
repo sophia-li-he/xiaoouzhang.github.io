@@ -71,7 +71,7 @@ F(X_0^j)=\frac{\sum_{k=1}^c n_k(\mu_k-\mu)^2}{\sigma_k^2}\;,
 \end{equation}
 where $$k$$ in the numerator is summed over all categories; $$\mu_k$$, $$\sigma_k$$ are the mean and standard deviation for $$X_0^j$$ in each category. More details of the Fisher score can be found in [this article](https://arxiv.org/pdf/1202.3725.pdf). Now we concentrate on how well the features separate the users that have used the service "ind_recibo_ult1" from those who haven't. The curve for the Fisher score strongly overlap with the distribution of weights, meaning the SDAE is trying to find out which features can do the best to separate the clients with different preferences. 
 
-Forthermore, we can also get insights from the MF algorithm. The paper by [Hu et al. (2008)](https://dl.acm.org/citation.cfm?id=1510528.1511352) proposed a way to explain the model in the following way. Simple mathematical derivation shows that the preference matrix $$p_{ui}=\sum_j s^u_{ij}c_{ui}$$, where $s^u_{ij}=v_i^T(V^TC^uV+\lambda I)^{-1}v_j$, and
+Forthermore, we can also get insights from the MF algorithm. The paper by [Hu et al. (2008)](https://dl.acm.org/citation.cfm?id=1510528.1511352) proposed a way to explain the model in the following way. Simple mathematical derivation shows that the preference matrix $$p_{ui}=\sum_j s^u_{ij}c_{ui}$$, where $$s^u_{ij}=v_i^T(V^TC^uV+\lambda I)^{-1}v_j$$, and $$C^u=diag(C_{u:})$$.
 ![an image alt text]({{ site.baseurl }}/images/rs/interpret_user139_newprod12.png "an image title")
 
 
