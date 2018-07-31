@@ -74,9 +74,9 @@ where $$k$$ in the numerator is summed over all categories; $$\mu_k$$, $$\sigma_
 
 Furthermore, we can also get insights from the MF algorithm. The paper by [Hu et al. (2008)](https://dl.acm.org/citation.cfm?id=1510528.1511352) proposed the following way to explain the model. Simple mathematical derivation shows that the preference matrix can be written as
 \begin{equation}
-p_{ui}=\sum_j s^u_{ij}c_{uj}$$, where $$s^u_{ij}=v_i^T(V^TC^uV+\lambda I)^{-1}v_j$$, and $$C^u=Diag(c_{u:})\;.
+p_{ui}=\sum_j s^u_{ij}c_{uj}\;,
 \end{equation}
-The  (number of products $$\times$$ number of products) matrix $$s^u_{ij}c_{uj}$$ represents the influence of the purchase history of $$j$$ on the decision of customer $$u$$ to purchase the item $$i$$. The following figure plots the matrix $$s^u_{ij}c_{uj}$$ for one of the clients. This client started to use the e-account ('ind_ecue_fin_ult1', labeled by 12 in the plot) in 2016-04-28, which is a new service for this client. On the row labeled by 12, the strongest contribution comes from the 23rd column representing the Direct Debit service. Indeed, this client has used the Direct Debit service for 8 months, and he/she now wants to make it electronic. We can do a similar analysis each time a client start to use a new service and find out the purchase history that has the most important influence on the new purchase.
+where $$s^u_{ij}=v_i^T(V^TC^uV+\lambda I)^{-1}v_j$$, and $$C^u=Diag(c_{u:})$$. The  (number of products $$\times$$ number of products) matrix $$s^u_{ij}c_{uj}$$ represents the influence of the purchase history of $$j$$ on the decision of customer $$u$$ to purchase the item $$i$$. The following figure plots the matrix $$s^u_{ij}c_{uj}$$ for one of the clients. This client started to use the e-account ('ind_ecue_fin_ult1', labeled by 12 in the plot) in 2016-04-28, which is a new service for this client. On the row labeled by 12, the strongest contribution comes from the 23rd column representing the Direct Debit service. Indeed, this client has used the Direct Debit service for 8 months, and he/she now wants to make it electronic. We can do a similar analysis each time a client start to use a new service and find out the purchase history that has the most important influence on the new purchase.
 
 ![an image alt text]({{ site.baseurl }}/images/rs/interpret_user139_newprod12.png "an image title")
 
