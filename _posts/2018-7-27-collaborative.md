@@ -37,7 +37,7 @@ On the other hand, we are not completely sure about the preference. Therefore, w
 \begin{equation}
 c_{ij}=1+\alpha r_{ij}\;,
 \end{equation}
-where $$\alpha$$ describes how the confidence grows with the history of using the service $$j$$. 
+where $$\alpha$$ describes how the confidence grows with the number of months of using the service $$j$$. 
 
 The MF algorithm for implicit feed back is applied in the following way. We define user matrix $$U_{i,:}$$ and item matrix $$V_{j,:}$$, where each row, written as $$\mathbf{u}_i$$ and $$\\mathbf{v}_j$$, is the vector in the latent factor representation for each customer and service, respectively. We predict the preference $$p_{i,j}$$ by $$\mathbf{u}_i\cdot\mathbf{v}_j$$. The preferences with different levels of confidence are not treated equally in the loss function, which is given by:
 \begin{equation}
