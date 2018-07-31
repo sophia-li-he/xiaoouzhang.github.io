@@ -54,7 +54,7 @@ In the prediction process, for each user $$i$$, we mask out the services that ha
 ## Some Visualizations
 Before running the model, let's get some insight about the dataset by visualize the distributions of some features. The following graph shows the distribution of the activate/inactive clients for some products. It is not surprising to see that most customers that have chosen any products are active clients. If we see a new client whose state is "inactive", it is reasonable to assume that this client will not use any new service in the near future.
 ![an image alt text]({{ site.baseurl }}/images/rs/ind_actividad_cliente.png "an image title")
-
+The following graph shows the distribution of age and segmento (the level of clients) for different clients. Unlike the feature for activate/inactive clients, different product shows quiet different distributions. For example, the Junior Account (nd_ctju_fin_ult1) is mainly used by clients below 20 years old, and the people over 80 years old prefers Long-term deposits (ind_dela_fin_ult1). In addition, the clients in the top level are more likely to use the pension service rather than saving account compared to the clients in the lower levels.
 ![an image alt text]({{ site.baseurl }}/images/rs/age.png "an image title")
 ![an image alt text]({{ site.baseurl }}/images/rs/segmento.png "an image title")
 ![an image alt text]({{ site.baseurl }}/images/rs/interpret_user139_newprod12.png "an image title")
