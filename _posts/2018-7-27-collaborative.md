@@ -8,7 +8,7 @@ title: Deep Learning + Collaborative Filtering for Recommender Systems
 
 ## Introduction
 
-This post is a follow up discussion of [an earlier work](https://github.com/xiaoouzhang/Collaborative-Deep-Learning-for-Recommender-Systems) about recommender systems for the [Santander dataset](https://www.kaggle.com/c/santander-product-recommendation). I will focus on how to use the model to interpret the patterns of the dataset.
+This post is a follow up discussion of [an earlier work](https://github.com/xiaoouzhang/Collaborative-Deep-Learning-for-Recommender-Systems) about recommender systems for the [Santander dataset](https://www.kaggle.com/c/santander-product-recommendation). I will focus on using the model to interpret the patterns of the dataset.
 
 ## What Can We Get from the Dataset
 The key information extracted from the dataset is the rating matrix and the side information of users. The size of the rating matrix is (user number) $$\times$$ (product number). Each matrix element $$r_{ij}$$ is the number of months that each user has used each product from 2015-01-28 to 2016-03-28. The record from 2016-03-28 to 2016-05-28 is used for validation and testing process. Note that we can build a recommender system only using the rating matrix by collaborative filtering (specifcally, matrix factoriztion).
