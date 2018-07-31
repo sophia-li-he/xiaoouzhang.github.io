@@ -52,8 +52,9 @@ Each time after the $$U$$ and $$V$$ matrices are updated, we also update the par
 In the prediction process, for each user $$i$$, we mask out the services that have been chosen before and assign a percentile-ranking for the remaining services according to the value of $$\mathbf{u}_i\cdot\mathbf{v}_j$$. A ranking of $$100\%$$ means the item is predicted to be the least favorable for user $$i$$, while $$0\%$$ means the the item is the most favorable. A random guess should have a ranking of $$50\%$$. For new users whose purchase history is not available, we can generate the user matrix using the SDAE, thus the cold-start problem in collaborative filtering can be levitated.
 
 ## Some Visualizations
-
+Before running the model, let's get some insight about the dataset by visualize the distributions of some features. The following graph shows the distribution of the activate/inactive clients for some products. It is not surprising to see that most customers that have chosen any products are active clients. If we see a new client whose state is "inactive", it is reasonable to assume that this client will not use any new service in the near future.
 ![an image alt text]({{ site.baseurl }}/images/rs/ind_actividad_cliente.png "an image title")
+
 ![an image alt text]({{ site.baseurl }}/images/rs/age.png "an image title")
 ![an image alt text]({{ site.baseurl }}/images/rs/segmento.png "an image title")
 ![an image alt text]({{ site.baseurl }}/images/rs/interpret_user139_newprod12.png "an image title")
