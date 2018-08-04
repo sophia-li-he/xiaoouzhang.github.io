@@ -15,7 +15,7 @@ The key information extracted from the dataset is the rating matrix and the side
 
 Besides, the client information is extracted to enhance the performance of MF, especially for the new clients without any purchase history. Both categorical (gender, nationality, etc.) and numerical (age, income, etc.) variables exist in the dataset. The categorical variables are represented by one-hot encodings, and the numerical variables can be binned and become categorical variables. These encodings are concatenated into a binary 314-dimensional vector as the input of SDAE.
 
-The goal of the recommender system is using the client information and the purchase record from 2015-01-28 to 2016-03-28 to predict the products that are most likely to be purchased in the following month.
+The goal of the recommender system is using the client information and the purchase record from 2015-01-28 to 2016-03-28 to predict the products that are likely to be purchased in the following month.
 
 
 ## Model Description
