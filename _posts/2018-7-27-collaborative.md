@@ -72,9 +72,9 @@ I also plotted the Fisher score for each of the binary encodings in $$X_0$$ for 
 \begin{equation}
 F(X_0^j)=\frac{\sum_{k=1}^c n_k(\mu_k-\mu)^2}{\sigma_k^2}\;,
 \end{equation}
-where $$k$$ in the numerator is summed over all categories; $$\mu_k$$, $$\sigma_k$$ are the mean and standard deviation of the feature $$X_0^j$$ in each category, $$\mu$$ is the mean of all data points, and $$n_k$$ is the number of data points in category $$k$$. More details of the Fisher score can be found in [this article](https://arxiv.org/pdf/1202.3725.pdf). Now we concentrate on how well the features separate the clients that have used the service "ind_recibo_ult1" from those who haven't. The curve for the Fisher score strongly overlap with the distribution of weights, meaning the SDAE is trying to find out which features can do the best to separate the clients with different preferences. 
+where $$k$$ in the numerator is summed over all categories; $$\mu_k$$, $$\sigma_k$$ are the mean and standard deviation of the feature $$X_0^j$$ in each category, $$\mu$$ is the mean of all data points, and $$n_k$$ is the number of data points in category $$k$$. More details of the Fisher score can be found in [this article](https://arxiv.org/pdf/1202.3725.pdf). Now we concentrate on how well the features separate the clients that have used the service "ind_recibo_ult1" from those who haven't. The curve for the Fisher score strongly overlap with the distribution of weights, meaning the SDAE is trying to find out which features can do the best to separate the clients with different preferences. If we calculate the fisher score based on other services, some addition peaks can appear, while the most prominent ones are still "segmento" and "indrel_1mes".
 
-Furthermore, we can also get insights from the MF algorithm. The paper by [Hu et al. (2008)](https://dl.acm.org/citation.cfm?id=1510528.1511352) proposed the following way to explain the model. Simple mathematical derivation shows that the preference matrix can be written as
+Furthermore, we can get additional insights from the MF algorithm. The paper by [Hu et al. (2008)](https://dl.acm.org/citation.cfm?id=1510528.1511352) proposed the following way to explain the model. Simple mathematical derivation shows that the preference matrix can be written as
 \begin{equation}
 p_{ui}=\sum_j s^u_{ij}c_{uj}\;,
 \end{equation}
