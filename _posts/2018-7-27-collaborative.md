@@ -11,9 +11,11 @@ title: Deep Learning + Collaborative Filtering for Recommender Systems
 This post is a follow up discussion of [an earlier work](https://github.com/xiaoouzhang/Collaborative-Deep-Learning-for-Recommender-Systems) about recommender systems for the [Santander dataset](https://www.kaggle.com/c/santander-product-recommendation) using a hybrid model combining the stacked denoising autoencoder (SDAE) with matrix factorization (MF) algorithm. I will focus on how to use the model to interpret the patterns of the dataset.
 
 ## What Can We Get from the Dataset
-The key information extracted from the dataset is the rating matrix and the side information of clients. The size of the rating matrix is (client number) $$\times$$ (product number). Each matrix element $$r_{ij}$$ is the total number of months that the client $$i$$ has used the product $$j$$ from 2015-01-28 to 2016-03-28. The record from 2016-03-28 to 2016-05-28 is reserved for validation and testing process. Note that we can build a recommender system only using the rating matrix by collaborative filtering (specifcally, MF algorithm).
+The key information extracted from the dataset is the rating matrix and the side information of clients. The size of the rating matrix is (client number) $$\times$$ (product number). Each matrix element $$r_{ij}$$ is the total number of months that the client $$i$$ has used the product $$j$$ from 2015-01-28 to 2016-03-28. The record from 2016-03-28 to 2016-05-28 is reserved for the validation and testing process. Note that we can build a recommender system only using the rating matrix by collaborative filtering (specifcally, MF algorithm).
 
 Besides, the client information is extracted to enhance the performance of MF, especially for the new clients without any purchase history. Both categorical (gender, nationality, etc.) and numerical (age, income, etc.) variables exist in the dataset. The categorical variables are represented by one-hot encodings, and the numerical variables can be binned and become categorical variables. These encodings are concatenated into a binary 314-dimensional vector as the input of SDAE.
+
+The goal of the recommender system is using the user information and the purchase record from 2015-01-28 to 2016-03-28 to predict the products that are most likely to be purchased in the following month.
 
 
 ## Model Description
